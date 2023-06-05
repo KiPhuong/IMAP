@@ -35,14 +35,25 @@ namespace IMAP
             var inbox = client.Inbox;
             inbox.Open(FolderAccess.ReadOnly);
 
-            for (int i = 0; i < 50; i++)
+            int limit = 1;
+
+            for (int i = inbox.Count - 1; i >= 0; i--)
             {
+                
                 var message = inbox.GetMessage(i);
-                ListViewItem item = new ListViewItem((i + 1).ToString());
+                ListViewItem item = new ListViewItem(limit.ToString());
                 item.SubItems.Add(message.From.ToString());
                 item.SubItems.Add(message.Subject.ToString());
                 item.SubItems.Add(message.Date.ToString());
                 lvBox.Items.Add(item);
+                if (limit == 50)
+                {
+                    break;
+                }
+                else 
+                { 
+                    limit++; 
+                }
             }
 
         }
@@ -61,15 +72,24 @@ namespace IMAP
             client.Authenticate(email, pass); // gmail accout, app password.
             var inbox = client.Inbox;
             inbox.Open(FolderAccess.ReadOnly);
-
-            for (int i = 0; i < 50; i++)
+            int limit = 1;
+            for (int i = inbox.Count - 1; i >= 0; i--)
             {
                 var message = inbox.GetMessage(i);
-                ListViewItem item = new ListViewItem((i + 1).ToString());
+                ListViewItem item = new ListViewItem(limit.ToString());
                 item.SubItems.Add(message.From.ToString());
                 item.SubItems.Add(message.Subject.ToString());
                 item.SubItems.Add(message.Date.ToString());
                 lvBox.Items.Add(item);
+                if (limit == 50)
+                {
+                    break;
+                }
+                else
+                {
+                    limit++;
+                }
+
             }
         }
 
@@ -87,7 +107,7 @@ namespace IMAP
             }
             else if (logout == DialogResult.No)
             {
-                //Contents
+                
             }
         }
     }
