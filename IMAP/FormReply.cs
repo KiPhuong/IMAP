@@ -26,28 +26,47 @@ namespace IMAP
             this.sub = sub;
         }
 
+        //xu ly emailaddress cua nguoi nhan
+        string format(string to)
+        {
+            string newaddr = "";
+            int i;
+            for(i= 0; i < to.Length; i++)
+            {
+                if (to[i] == '<') break;
+            }
+            i++;
+            while (to[i] != '>')
+            {
+                newaddr += to[i];
+                i++;
+            }
+            return newaddr;
+        }
+
         private void btSend_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            string newaddr = format(to);
+            try
+            {
                 var client = new SmtpClient();
                 client.Connect("smtp.gmail.com", 465, true); // smtp host, port, use ssl.
                 client.Authenticate(from, pass); // gmail account, app password
                 var reply = new MimeMessage();
                 reply.From.Add(new MailboxAddress(tbName.Text, from));
-                reply.To.Add(new MailboxAddress("", tbTo.Text));
+                reply.To.Add(new MailboxAddress("", newaddr));
                 reply.Subject = tbSub.Text;
                 reply.Body = new TextPart("plain")
                 {
                     Text = rtbBody.Text
                 };
                 client.Send(reply);
-                MessageBox.Show("Thành công! Đã gửi mail");
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Lỗi! Không gửi được mail");
-            //}
+                MessageBox.Show("Reply thành công!");
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi! Không gửi được mail");
+            }
         }
 
         private void FormReply_Load(object sender, EventArgs e)
