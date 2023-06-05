@@ -95,7 +95,18 @@ namespace IMAP
 
         private void lvBox_MouseClick(object sender, MouseEventArgs e)
         {
+            var client = new ImapClient();
+            client.Connect("imap.gmail.com", 993, true); // imap host, port, use ssl.
+            client.Authenticate(email, pass); // gmail accout, app password.
+            var inbox = client.Inbox;
+            inbox.Open(FolderAccess.ReadOnly);
 
+
+            var message = inbox.GetMessage(inbox.Count - 4);
+
+
+            FormView formView = new FormView(message.From.ToString(), message.To.ToString(), message.TextBody.ToString());
+            formView.Show();
         }
 
         private void btLogout_Click(object sender, EventArgs e)
