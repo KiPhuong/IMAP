@@ -100,7 +100,7 @@
             this.lvBox.TabIndex = 8;
             this.lvBox.UseCompatibleStateImageBehavior = false;
             this.lvBox.View = System.Windows.Forms.View.Details;
-            this.lvBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvBox_MouseClick);
+            this.lvBox.SelectedIndexChanged += new System.EventHandler(this.lvBox_SelectedIndexChanged);
             // 
             // colNum
             // 

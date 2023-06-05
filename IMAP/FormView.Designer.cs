@@ -33,13 +33,16 @@
             this.tbFrom = new System.Windows.Forms.TextBox();
             this.tbTo = new System.Windows.Forms.TextBox();
             this.btReply = new System.Windows.Forms.Button();
-            this.rtbBody = new System.Windows.Forms.RichTextBox();
+            this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbSub = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 18);
+            this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 15);
             this.label1.TabIndex = 0;
@@ -48,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 47);
+            this.label2.Location = new System.Drawing.Point(12, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 15);
             this.label2.TabIndex = 1;
@@ -63,7 +66,7 @@
             // 
             // tbTo
             // 
-            this.tbTo.Location = new System.Drawing.Point(69, 44);
+            this.tbTo.Location = new System.Drawing.Point(69, 47);
             this.tbTo.Name = "tbTo";
             this.tbTo.Size = new System.Drawing.Size(472, 23);
             this.tbTo.TabIndex = 3;
@@ -78,20 +81,41 @@
             this.btReply.UseVisualStyleBackColor = true;
             this.btReply.Click += new System.EventHandler(this.btReply_Click);
             // 
-            // rtbBody
+            // webView21
             // 
-            this.rtbBody.Location = new System.Drawing.Point(69, 98);
-            this.rtbBody.Name = "rtbBody";
-            this.rtbBody.Size = new System.Drawing.Size(472, 340);
-            this.rtbBody.TabIndex = 6;
-            this.rtbBody.Text = "";
+            this.webView21.AllowExternalDrop = true;
+            this.webView21.CreationProperties = null;
+            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView21.Location = new System.Drawing.Point(69, 121);
+            this.webView21.Name = "webView21";
+            this.webView21.Size = new System.Drawing.Size(581, 369);
+            this.webView21.TabIndex = 6;
+            this.webView21.ZoomFactor = 1D;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Subject: ";
+            // 
+            // tbSub
+            // 
+            this.tbSub.Location = new System.Drawing.Point(69, 79);
+            this.tbSub.Name = "tbSub";
+            this.tbSub.Size = new System.Drawing.Size(472, 23);
+            this.tbSub.TabIndex = 8;
             // 
             // FormView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 450);
-            this.Controls.Add(this.rtbBody);
+            this.ClientSize = new System.Drawing.Size(682, 502);
+            this.Controls.Add(this.tbSub);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.webView21);
             this.Controls.Add(this.btReply);
             this.Controls.Add(this.tbTo);
             this.Controls.Add(this.tbFrom);
@@ -100,6 +124,7 @@
             this.Name = "FormView";
             this.Text = "FormView";
             this.Load += new System.EventHandler(this.FormView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +137,8 @@
         private TextBox tbFrom;
         private TextBox tbTo;
         private Button btReply;
-        private RichTextBox rtbBody;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private Label label3;
+        private TextBox tbSub;
     }
 }

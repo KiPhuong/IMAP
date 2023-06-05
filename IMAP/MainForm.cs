@@ -93,19 +93,19 @@ namespace IMAP
             }
         }
 
-        private void lvBox_MouseClick(object sender, MouseEventArgs e)
+        private void lvBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            if (lvBox.SelectedItems.Count == 0) return;
+            ListViewItem item = lvBox.SelectedItems[0];
+            int num = Int32.Parse(item.SubItems[0].Text);
             var client = new ImapClient();
             client.Connect("imap.gmail.com", 993, true); // imap host, port, use ssl.
             client.Authenticate(email, pass); // gmail accout, app password.
             var inbox = client.Inbox;
             inbox.Open(FolderAccess.ReadOnly);
-
-
-            var message = inbox.GetMessage(inbox.Count - 4);
-
-
-            FormView formView = new FormView(message.From.ToString(), message.To.ToString(), message.TextBody.ToString());
+            var message = inbox.GetMessage(inbox.Count - num);
+            FormView formView = new FormView(message.From.ToString(), message.To.ToString(),message.Subject.ToString(), message.HtmlBody.ToString());
             formView.Show();
         }
 
