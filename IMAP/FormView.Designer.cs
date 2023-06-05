@@ -73,7 +73,7 @@
             // 
             // btReply
             // 
-            this.btReply.Location = new System.Drawing.Point(575, 18);
+            this.btReply.Location = new System.Drawing.Point(575, 32);
             this.btReply.Name = "btReply";
             this.btReply.Size = new System.Drawing.Size(75, 50);
             this.btReply.TabIndex = 5;

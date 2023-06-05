@@ -51,14 +51,14 @@
             // 
             // tbSub
             // 
-            this.tbSub.Location = new System.Drawing.Point(62, 132);
+            this.tbSub.Location = new System.Drawing.Point(63, 132);
             this.tbSub.Name = "tbSub";
             this.tbSub.Size = new System.Drawing.Size(500, 23);
             this.tbSub.TabIndex = 13;
             // 
             // tbTo
             // 
-            this.tbTo.Location = new System.Drawing.Point(62, 88);
+            this.tbTo.Location = new System.Drawing.Point(63, 91);
             this.tbTo.Name = "tbTo";
             this.tbTo.Size = new System.Drawing.Size(389, 23);
             this.tbTo.TabIndex = 12;
@@ -75,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 135);
+            this.label3.Location = new System.Drawing.Point(9, 135);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 15);
             this.label3.TabIndex = 10;
@@ -84,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 91);
+            this.label2.Location = new System.Drawing.Point(12, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 15);
             this.label2.TabIndex = 9;
@@ -93,7 +93,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 15);
+            this.label1.Location = new System.Drawing.Point(9, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 15;
@@ -108,7 +108,7 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(62, 47);
+            this.tbName.Location = new System.Drawing.Point(63, 50);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(389, 23);
             this.tbName.TabIndex = 18;
@@ -116,7 +116,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 50);
+            this.label5.Location = new System.Drawing.Point(8, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 15);
             this.label5.TabIndex = 17;

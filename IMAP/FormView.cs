@@ -16,14 +16,15 @@ namespace IMAP
 {
     public partial class FormView : Form
     {
-        string from, to, sub, html;
-        public FormView(string from, string to,string sub, string html)
+        string from, to, sub, html, pass;
+        public FormView(string from, string to,string sub, string html, string pass)
         {
             InitializeComponent();
             this.from = from;
             this.to = to;
             this.html = html;
             this.sub = sub;
+            this.pass = pass;
         }
 
 
@@ -42,7 +43,8 @@ namespace IMAP
 
         private void btReply_Click(object sender, EventArgs e)
         {
-
+            FormReply formReply = new FormReply(to, from, pass, sub);
+            formReply.Show();
         }
     }
 }

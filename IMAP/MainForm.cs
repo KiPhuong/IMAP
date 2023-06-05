@@ -105,7 +105,7 @@ namespace IMAP
             var inbox = client.Inbox;
             inbox.Open(FolderAccess.ReadOnly);
             var message = inbox.GetMessage(inbox.Count - num);
-            FormView formView = new FormView(message.From.ToString(), message.To.ToString(),message.Subject.ToString(), message.HtmlBody.ToString());
+            FormView formView = new FormView(message.From.ToString(), message.To.ToString(),message.Subject.ToString(), message.HtmlBody.ToString(), pass);
             formView.Show();
         }
 
