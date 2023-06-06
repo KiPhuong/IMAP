@@ -27,7 +27,7 @@ namespace IMAP
             tbOwn.Enabled = false;
         }
         
-        private void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e) // dùng để hiển thị danh sách 50 thư mới nhất của email
         { 
             try
             {
@@ -68,13 +68,13 @@ namespace IMAP
 
         }
 
-        private void btSendM_Click(object sender, EventArgs e)
+        private void btSendM_Click(object sender, EventArgs e) // hiển thị form FormSenđ
         {
             FormSend formSend = new FormSend(email, pass);
             formSend.Show();
         }
 
-        private void btRef_Click(object sender, EventArgs e)
+        private void btRef_Click(object sender, EventArgs e) //dùng để load lại danh sách 50 thư mới nhất của email
         {
             lvBox.Items.Clear();
             var client = new ImapClient();
@@ -103,7 +103,8 @@ namespace IMAP
             }
         }
 
-        private void lvBox_SelectedIndexChanged(object sender, EventArgs e)
+        // dùng để lấy số thứ tự của mail trong danh sách sau đó hiển thị nội dung thư đó lên FormView
+        private void lvBox_SelectedIndexChanged(object sender, EventArgs e)     
         {
 
             if (lvBox.SelectedItems.Count == 0) return;
@@ -119,7 +120,7 @@ namespace IMAP
             formView.Show();
         }
 
-        private void btLogout_Click(object sender, EventArgs e)
+        private void btLogout_Click(object sender, EventArgs e) //dùng để log out 
         {
             DialogResult logout = MessageBox.Show("Bạn có chắc muốn log out?", "Log out", MessageBoxButtons.YesNo);
             if (logout == DialogResult.Yes)

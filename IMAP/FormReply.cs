@@ -17,7 +17,7 @@ namespace IMAP
 {
     public partial class FormReply : Form
     {
-        string from, to, pass, sub;
+        string from, to, pass, sub, path;
 
         public FormReply(string from, string to, string pass, string sub)
         {
@@ -28,20 +28,20 @@ namespace IMAP
             this.sub = sub;
         }
 
-        string path;
         BodyBuilder builder = new BodyBuilder();
-
-        private void btSelect_Click(object sender, EventArgs e)
+        private void btSelect_Click(object sender, EventArgs e) //chọn file được đính kèm khi gửi mail
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
             path = ofd.FileName;
-            tbPath.Text = path;
+            string temp = Path.GetFileName(path);
+            tbPath.Text += temp + "  ";
             builder.Attachments.Add(path);
         }
 
-        //xu ly emailaddress cua nguoi nhan
-        string format(string to)
+        //xử lý email address của người nhận
+        //format address: "Name" <email> -> email
+        string format(string to) 
         {
             string newaddr = "";
             int i;
@@ -58,7 +58,7 @@ namespace IMAP
             return newaddr;
         }
 
-        private void btSend_Click(object sender, EventArgs e)
+        private void btSend_Click(object sender, EventArgs e) // dùng để reply lại 
         {
             string newaddr = format(to);
             try

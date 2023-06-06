@@ -28,7 +28,7 @@ namespace IMAP
         }
 
 
-        private async void FormView_Load(object sender, EventArgs e)
+        private async void FormView_Load(object sender, EventArgs e) //dùng để hiển thị nội dung thư khi mở form 
         {
             tbFrom.Text = from;
             tbTo.Text = to;
@@ -41,7 +41,7 @@ namespace IMAP
             webView21.NavigateToString(html);
         }
 
-        private void btReply_Click(object sender, EventArgs e)
+        private void btReply_Click(object sender, EventArgs e) //mở FormReply để reply lại thư
         {
             FormReply formReply = new FormReply(to, from, pass, sub);
             formReply.Show();

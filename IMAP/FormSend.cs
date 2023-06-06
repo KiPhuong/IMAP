@@ -30,18 +30,19 @@ namespace IMAP
             tbFrom.Enabled = false;
         }
 
+        
         BodyBuilder builder = new BodyBuilder();
-
-        private void btSelect_Click(object sender, EventArgs e)
+        private void btSelect_Click(object sender, EventArgs e) // chọn file được đính kèm khi gửi mail
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
             path = ofd.FileName;
-            tbPath.Text = path;
+            string temp = Path.GetFileName(path);
+            tbPath.Text += temp + "  ";
             builder.Attachments.Add(path);
         }
 
-        private void btSend_Click(object sender, EventArgs e)
+        private void btSend_Click(object sender, EventArgs e) // hàm dùng để gửi mail
         {
             try
             {
