@@ -28,33 +28,43 @@ namespace IMAP
         }
         
         private void MainForm_Load(object sender, EventArgs e)
-        {
-            var client = new ImapClient();
-            client.Connect("imap.gmail.com", 993, true); // imap host, port, use ssl.
-            client.Authenticate(email, pass); // gmail accout, app password.
-            var inbox = client.Inbox;
-            inbox.Open(FolderAccess.ReadOnly);
-
-            int limit = 1;
-
-            for (int i = inbox.Count - 1; i >= 0; i--)
+        { 
+            try
             {
-                
-                var message = inbox.GetMessage(i);
-                ListViewItem item = new ListViewItem(limit.ToString());
-                item.SubItems.Add(message.From.ToString());
-                item.SubItems.Add(message.Subject.ToString());
-                item.SubItems.Add(message.Date.ToString());
-                lvBox.Items.Add(item);
-                if (limit == 50)
+
+                var client = new ImapClient();
+                client.Connect("imap.gmail.com", 993, true); // imap host, port, use ssl.
+                client.Authenticate(email, pass); // gmail accout, app password.
+                var inbox = client.Inbox;
+                inbox.Open(FolderAccess.ReadOnly);
+
+                int limit = 1;
+
+                for (int i = inbox.Count - 1; i >= 0; i--)
                 {
-                    break;
-                }
-                else 
-                { 
-                    limit++; 
+
+                    var message = inbox.GetMessage(i);
+                    ListViewItem item = new ListViewItem(limit.ToString());
+                    item.SubItems.Add(message.From.ToString());
+                    item.SubItems.Add(message.Subject.ToString());
+                    item.SubItems.Add(message.Date.ToString());
+                    lvBox.Items.Add(item);
+                    if (limit == 50)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        limit++;
+                    }
                 }
             }
+            catch
+            {
+                MessageBox.Show("Sai tài khoản, vui lòng nhập lại: ");
+                this.Close();
+            }
+            
 
         }
 

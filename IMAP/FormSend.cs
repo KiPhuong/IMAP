@@ -12,13 +12,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Xml.Linq;
 using MailKit.Net.Imap;
 using MailKit.Net.Smtp;
+using System.IO;
 
 namespace IMAP
 {
     public partial class FormSend : Form
     {
 
-        string email, pass;
+        string email, pass, path;
 
         public FormSend(string email, string pass)
         {
@@ -27,6 +28,17 @@ namespace IMAP
             this.pass = pass;
             tbFrom.Text = email;
             tbFrom.Enabled = false;
+        }
+
+        BodyBuilder builder = new BodyBuilder();
+
+        private void btSelect_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+            path = ofd.FileName;
+            tbPath.Text = path;
+            builder.Attachments.Add(path);
         }
 
         private void btSend_Click(object sender, EventArgs e)
@@ -40,10 +52,8 @@ namespace IMAP
                 message.From.Add(new MailboxAddress(tbName.Text, email));
                 message.To.Add(new MailboxAddress("", tbTo.Text));
                 message.Subject = tbSub.Text;
-                message.Body = new TextPart("plain")
-                {
-                    Text = rtbBody.Text
-                };
+                builder.TextBody = rtbBody.Text;
+                message.Body = builder.ToMessageBody();
                 client.Send(message);
                 MessageBox.Show("Thành công! Đã gửi mail");
             }

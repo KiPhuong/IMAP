@@ -39,11 +39,14 @@
             this.rtbBody = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btSend = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btSelect = new System.Windows.Forms.Button();
+            this.tbPath = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(68, 88);
+            this.tbName.Location = new System.Drawing.Point(99, 85);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(389, 23);
             this.tbName.TabIndex = 26;
@@ -59,7 +62,7 @@
             // 
             // tbFrom
             // 
-            this.tbFrom.Location = new System.Drawing.Point(68, 12);
+            this.tbFrom.Location = new System.Drawing.Point(99, 9);
             this.tbFrom.Name = "tbFrom";
             this.tbFrom.Size = new System.Drawing.Size(388, 23);
             this.tbFrom.TabIndex = 24;
@@ -75,14 +78,14 @@
             // 
             // tbSub
             // 
-            this.tbSub.Location = new System.Drawing.Point(67, 127);
+            this.tbSub.Location = new System.Drawing.Point(98, 124);
             this.tbSub.Name = "tbSub";
             this.tbSub.Size = new System.Drawing.Size(500, 23);
             this.tbSub.TabIndex = 22;
             // 
             // tbTo
             // 
-            this.tbTo.Location = new System.Drawing.Point(67, 50);
+            this.tbTo.Location = new System.Drawing.Point(98, 47);
             this.tbTo.Name = "tbTo";
             this.tbTo.Size = new System.Drawing.Size(389, 23);
             this.tbTo.TabIndex = 21;
@@ -90,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 130);
+            this.label3.Location = new System.Drawing.Point(13, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 15);
             this.label3.TabIndex = 20;
@@ -107,7 +110,7 @@
             // 
             // rtbBody
             // 
-            this.rtbBody.Location = new System.Drawing.Point(67, 171);
+            this.rtbBody.Location = new System.Drawing.Point(98, 168);
             this.rtbBody.Name = "rtbBody";
             this.rtbBody.Size = new System.Drawing.Size(500, 277);
             this.rtbBody.TabIndex = 28;
@@ -124,7 +127,7 @@
             // 
             // btSend
             // 
-            this.btSend.Location = new System.Drawing.Point(492, 35);
+            this.btSend.Location = new System.Drawing.Point(523, 32);
             this.btSend.Name = "btSend";
             this.btSend.Size = new System.Drawing.Size(75, 50);
             this.btSend.TabIndex = 29;
@@ -132,11 +135,40 @@
             this.btSend.UseVisualStyleBackColor = true;
             this.btSend.Click += new System.EventHandler(this.btSend_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 460);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 15);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Attachment";
+            // 
+            // btSelect
+            // 
+            this.btSelect.Location = new System.Drawing.Point(604, 457);
+            this.btSelect.Name = "btSelect";
+            this.btSelect.Size = new System.Drawing.Size(73, 23);
+            this.btSelect.TabIndex = 31;
+            this.btSelect.Text = "Select";
+            this.btSelect.UseVisualStyleBackColor = true;
+            this.btSelect.Click += new System.EventHandler(this.btSelect_Click);
+            // 
+            // tbPath
+            // 
+            this.tbPath.Location = new System.Drawing.Point(99, 457);
+            this.tbPath.Name = "tbPath";
+            this.tbPath.Size = new System.Drawing.Size(499, 23);
+            this.tbPath.TabIndex = 32;
+            // 
             // FormReply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 467);
+            this.ClientSize = new System.Drawing.Size(689, 494);
+            this.Controls.Add(this.tbPath);
+            this.Controls.Add(this.btSelect);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btSend);
             this.Controls.Add(this.rtbBody);
             this.Controls.Add(this.label4);
@@ -169,5 +201,8 @@
         private RichTextBox rtbBody;
         private Label label4;
         private Button btSend;
+        private Label label6;
+        private Button btSelect;
+        private TextBox tbPath;
     }
 }

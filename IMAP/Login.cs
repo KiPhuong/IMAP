@@ -21,7 +21,7 @@ namespace IMAP
         {
             MainForm mainForm = new MainForm(tbEmail.Text, tbPass.Text);
             mainForm.ShowDialog();
-            this.Close();
+            
         }
     }
 }

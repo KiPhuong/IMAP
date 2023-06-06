@@ -6,9 +6,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace IMAP
@@ -24,6 +26,18 @@ namespace IMAP
             this.to = to;
             this.pass = pass;
             this.sub = sub;
+        }
+
+        string path;
+        BodyBuilder builder = new BodyBuilder();
+
+        private void btSelect_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+            path = ofd.FileName;
+            tbPath.Text = path;
+            builder.Attachments.Add(path);
         }
 
         //xu ly emailaddress cua nguoi nhan
@@ -56,10 +70,8 @@ namespace IMAP
                 reply.From.Add(new MailboxAddress(tbName.Text, from));
                 reply.To.Add(new MailboxAddress("", newaddr));
                 reply.Subject = tbSub.Text;
-                reply.Body = new TextPart("plain")
-                {
-                    Text = rtbBody.Text
-                };
+                builder.TextBody = rtbBody.Text;
+                reply.Body = builder.ToMessageBody();
                 client.Send(reply);
                 MessageBox.Show("Reply thành công!");
             }
