@@ -30,7 +30,7 @@
         {
             this.btLogin = new System.Windows.Forms.Button();
             this.tbPass = new System.Windows.Forms.TextBox();
-            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbgmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -53,12 +53,12 @@
             this.tbPass.Size = new System.Drawing.Size(282, 23);
             this.tbPass.TabIndex = 11;
             // 
-            // tbEmail
+            // tbgmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(109, 45);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(282, 23);
-            this.tbEmail.TabIndex = 10;
+            this.tbgmail.Location = new System.Drawing.Point(109, 45);
+            this.tbgmail.Name = "tbgmail";
+            this.tbgmail.Size = new System.Drawing.Size(282, 23);
+            this.tbgmail.TabIndex = 10;
             // 
             // label3
             // 
@@ -74,9 +74,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(43, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 15);
+            this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Email";
+            this.label2.Text = "Gmail";
             // 
             // Login
             // 
@@ -85,7 +85,7 @@
             this.ClientSize = new System.Drawing.Size(456, 241);
             this.Controls.Add(this.btLogin);
             this.Controls.Add(this.tbPass);
-            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbgmail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "Login";
@@ -99,7 +99,7 @@
 
         private Button btLogin;
         private TextBox tbPass;
-        private TextBox tbEmail;
+        private TextBox tbgmail;
         private Label label3;
         private Label label2;
     }

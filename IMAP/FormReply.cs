@@ -17,7 +17,7 @@ namespace IMAP
 {
     public partial class FormReply : Form
     {
-        string from, to, pass, sub, path;
+        string from, to, pass, sub, path = "";
 
         public FormReply(string from, string to, string pass, string sub)
         {
@@ -39,8 +39,8 @@ namespace IMAP
             builder.Attachments.Add(path);
         }
 
-        //xử lý email address của người nhận
-        //format address: "Name" <email> -> email
+        //xử lý gmail address của người nhận
+        //format address: "Name" <gmail> -> gmail
         string format(string to) 
         {
             string newaddr = "";
@@ -60,20 +60,22 @@ namespace IMAP
 
         private void btSend_Click(object sender, EventArgs e) // dùng để reply lại 
         {
-            string newaddr = format(to);
+            string newto = format(to);
+            string newfr = format(from);
             try
             {
                 var client = new SmtpClient();
                 client.Connect("smtp.gmail.com", 465, true); // smtp host, port, use ssl.
-                client.Authenticate(from, pass); // gmail account, app password
+                client.Authenticate(newfr, pass); // gmail account, app password
                 var reply = new MimeMessage();
-                reply.From.Add(new MailboxAddress(tbName.Text, from));
-                reply.To.Add(new MailboxAddress("", newaddr));
+                reply.From.Add(new MailboxAddress(tbName.Text, newfr));
+                reply.To.Add(new MailboxAddress("", newto));
                 reply.Subject = tbSub.Text;
                 builder.TextBody = rtbBody.Text;
                 reply.Body = builder.ToMessageBody();
                 client.Send(reply);
                 MessageBox.Show("Reply thành công!");
+                this.Close();
             }
             catch
             {

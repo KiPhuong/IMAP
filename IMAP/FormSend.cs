@@ -19,14 +19,14 @@ namespace IMAP
     public partial class FormSend : Form
     {
 
-        string email, pass, path;
+        string gmail, pass, path;
 
-        public FormSend(string email, string pass)
+        public FormSend(string gmail, string pass)
         {
             InitializeComponent();
-            this.email = email;
+            this.gmail = gmail;
             this.pass = pass;
-            tbFrom.Text = email;
+            tbFrom.Text = gmail;
             tbFrom.Enabled = false;
         }
 
@@ -48,15 +48,16 @@ namespace IMAP
             {
                 var client = new SmtpClient();
                 client.Connect("smtp.gmail.com",465, true); // smtp host, port, use ssl.
-                client.Authenticate(email, pass); // gmail account, app password
+                client.Authenticate(gmail, pass); // gmail account, app password
                 var message = new MimeMessage();
-                message.From.Add(new MailboxAddress(tbName.Text, email));
+                message.From.Add(new MailboxAddress(tbName.Text, gmail));
                 message.To.Add(new MailboxAddress("", tbTo.Text));
                 message.Subject = tbSub.Text;
                 builder.TextBody = rtbBody.Text;
                 message.Body = builder.ToMessageBody();
                 client.Send(message);
                 MessageBox.Show("Thành công! Đã gửi mail");
+                this.Close();
             }
             catch
             {

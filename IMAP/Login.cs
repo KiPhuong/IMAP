@@ -19,7 +19,7 @@ namespace IMAP
 
         private void btLogin_Click(object sender, EventArgs e) // hiển thị form Login
         {
-            MainForm mainForm = new MainForm(tbEmail.Text, tbPass.Text);
+            MainForm mainForm = new MainForm(tbgmail.Text, tbPass.Text);
             mainForm.ShowDialog();
             
         }

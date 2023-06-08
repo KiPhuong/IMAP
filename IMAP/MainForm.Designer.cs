@@ -38,6 +38,11 @@
             this.colFrom = new System.Windows.Forms.ColumnHeader();
             this.colSub = new System.Windows.Forms.ColumnHeader();
             this.colDate = new System.Windows.Forms.ColumnHeader();
+            this.lbpage = new System.Windows.Forms.Label();
+            this.tbPage = new System.Windows.Forms.TextBox();
+            this.btNext = new System.Windows.Forms.Button();
+            this.btBack = new System.Windows.Forms.Button();
+            this.lbTotal = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btLogout
@@ -122,11 +127,63 @@
             this.colDate.Text = "Date";
             this.colDate.Width = 140;
             // 
+            // lbpage
+            // 
+            this.lbpage.AutoSize = true;
+            this.lbpage.Location = new System.Drawing.Point(686, 470);
+            this.lbpage.Name = "lbpage";
+            this.lbpage.Size = new System.Drawing.Size(10, 15);
+            this.lbpage.TabIndex = 32;
+            this.lbpage.Text = " ";
+            // 
+            // tbPage
+            // 
+            this.tbPage.Enabled = false;
+            this.tbPage.Location = new System.Drawing.Point(686, 444);
+            this.tbPage.Name = "tbPage";
+            this.tbPage.Size = new System.Drawing.Size(35, 23);
+            this.tbPage.TabIndex = 31;
+            this.tbPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btNext
+            // 
+            this.btNext.Location = new System.Drawing.Point(736, 444);
+            this.btNext.Name = "btNext";
+            this.btNext.Size = new System.Drawing.Size(50, 23);
+            this.btNext.TabIndex = 30;
+            this.btNext.Text = "Next";
+            this.btNext.UseVisualStyleBackColor = true;
+            this.btNext.Click += new System.EventHandler(this.btNext_Click);
+            // 
+            // btBack
+            // 
+            this.btBack.Location = new System.Drawing.Point(620, 444);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(50, 23);
+            this.btBack.TabIndex = 29;
+            this.btBack.Text = "Back";
+            this.btBack.UseVisualStyleBackColor = true;
+            this.btBack.Click += new System.EventHandler(this.btBack_Click);
+            // 
+            // lbTotal
+            // 
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Location = new System.Drawing.Point(523, 447);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(38, 15);
+            this.lbTotal.TabIndex = 28;
+            this.lbTotal.Text = "Total: ";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 450);
+            this.ClientSize = new System.Drawing.Size(802, 493);
+            this.Controls.Add(this.lbpage);
+            this.Controls.Add(this.tbPage);
+            this.Controls.Add(this.btNext);
+            this.Controls.Add(this.btBack);
+            this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.lvBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbOwn);
@@ -152,5 +209,10 @@
         private ColumnHeader colFrom;
         private ColumnHeader colSub;
         private ColumnHeader colDate;
+        private Label lbpage;
+        private TextBox tbPage;
+        private Button btNext;
+        private Button btBack;
+        private Label lbTotal;
     }
 }
